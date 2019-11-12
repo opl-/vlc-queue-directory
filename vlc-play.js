@@ -4,8 +4,6 @@ const cp = require('child_process');
 const {promises: fs} = require('fs');
 const path = require('path');
 
-const PLAYLIST_LOC = '/tmp/vlcplaylist.m3u';
-
 (async () => {
 	const file = process.argv[2];
 	let dirPath = file;
@@ -23,9 +21,11 @@ const PLAYLIST_LOC = '/tmp/vlcplaylist.m3u';
 		playlist.push(...playlist.splice(0, startIndex));
 	}
 
-	await fs.writeFile(PLAYLIST_LOC, playlist.join('\n'));
-
-	cp.spawn('vlc', [PLAYLIST_LOC, '--no-random', ...process.argv.slice(2)], {
+	cp.spawn('vlc', [
+		'--no-random',
+		...process.argv.slice(2),
+		...playlist,
+	], {
 		detached: true,
 	});
 

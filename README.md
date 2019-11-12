@@ -8,4 +8,4 @@ I got tired of it and wrote a Node.js script to fix that issue.
 
 ## How?
 
-The script takes in the file passed in as an argument, lists all the files in the directory and creates a playlist with all the files in the directory, starting at the selected file. It then writes the playlist to (by default) `/tmp/vlcplaylist.m3u` and starts VLC with that playlist.
+The script takes in the file passed in as an argument, lists all the files in the directory and starts VLC with all the files in the directory, ordered alphabetically and starting at the specified item.
