@@ -23,7 +23,7 @@ const path = require('path');
 
 	cp.spawn('vlc', [
 		'--no-random',
-		...process.argv.slice(2),
+		...process.argv.slice(3),
 		...playlist,
 	], {
 		detached: true,
